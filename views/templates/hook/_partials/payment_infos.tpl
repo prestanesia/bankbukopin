@@ -23,9 +23,14 @@
 *  International Registered Trademark & Property of PrestaShop SA
 *}
 
-<div class="alert alert-info">
-<img src="../modules/bankbukopin/logo.png" style="float:left; margin-right:15px;" height="60">
-<p><strong>{l s="This module allows you to accept secure payments by Bank BUKOPIN." d='Modules.BankBUKOPIN.Admin'}</strong></p>
-<p>{l s="If the client chooses to pay by Bank BUKOPIN, the order's status will change to 'Awaiting Bank BUKOPIN Payment.'" d='Modules.BankBUKOPIN.Admin'}</p>
-<p>{l s="That said, you must manually confirm the order upon receiving the Bank BUKOPIN." d='Modules.BankBUKOPIN.Admin'}</p>
-</div>
+
+<dl>
+    <dt>{l s='Amount' mod='bankbukopin'}</dt>
+    <dd>{$total}</dd>
+    <dt>{l s='Name of account owner' mod='bankbukopin'}</dt>
+    <dd>{$bankbukopinOwner}</dd>
+    <dt>{l s='Please include these details' mod='bankbukopin'}</dt>
+    <dd>{$bankbukopinDetails}</dd>
+    <dt>{l s='Bank name' mod='bankbukopin'}</dt>
+    <dd>{$bankbukopinAddress nofilter}</dd>
+</dl>

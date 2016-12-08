@@ -23,9 +23,9 @@
 *  International Registered Trademark & Property of PrestaShop SA
 *}
 
-<p class="payment_module_bukopin">
-	<a class="bankbukopin" href="{$link->getModuleLink('bankbukopin', 'payment')|escape:'html'}" title="{l s='Pay by Bank Bukopin' mod='bankbukopin'}">
-		<img src="{$this_path_bw}bankwire.jpg" alt="{l s='Pay by Bank Bukopin' mod='bankbukopin'}" />
-		{l s='Pay by Bank Bukopin' mod='bankbukopin'}
+<p class="payment_module">
+	<a href="{$link->getModuleLink('bankbukopin', 'payment')|escape:'html'}" title="{l s='Pay by Bank BUKOPIN' d='Modules.BankBUKOPIN.Shop'}">
+		<img src="{$this_path_bw}logo.png" alt="{l s='Pay by Bank BUKOPIN' d='Modules.BankBUKOPIN.Shop'}"/>
+		{l s='Pay by Bank BUKOPIN' d='Modules.BankBUKOPIN.Shop'}&nbsp;<span>{l s='(order processing will be longer)' d='Modules.BankBUKOPIN.Shop'}</span>
 	</a>
 </p>

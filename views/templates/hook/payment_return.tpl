@@ -24,24 +24,22 @@
 *}
 
 {if $status == 'ok'}
-<p>{l s='Your order on %s is complete.' sprintf=$shop_name mod='bankbukopin'}
-		<br /><br />
-		{l s='Please send us a bank wire with' mod='bankbukopin'}
-		<br /><br />- {l s='Amount' mod='bankbukopin'} <span class="price"><strong>{$total_to_pay}</strong></span>
-		<br /><br />- {l s='Name of account owner' mod='bankbukopin'}  <strong>{if $bankbukopinOwner}{$bankbukopinOwner}{else}___________{/if}</strong>
-		<br /><br />- {l s='Include these details' mod='bankbukopin'}  <strong>{if $bankbukopinDetails}{$bankbukopinDetails}{else}___________{/if}</strong>
-		<br /><br />- {l s='Bank name' mod='bankbukopin'}  <strong>{if $bankbukopinAddress}{$bankbukopinAddress}{else}___________{/if}</strong>
-		{if !isset($reference)}
-			<br /><br />- {l s='Do not forget to insert your order number #%d in the subject of your bank wire.' sprintf=$id_order mod='bankbukopin'}
-		{else}
-			<br /><br />- {l s='Do not forget to insert your order reference %s in the subject of your bank wire.' sprintf=$reference mod='bankbukopin'}
-		{/if}		<br /><br />{l s='An email has been sent with this information.' mod='bankbukopin'}
-		<br /><br /> <strong>{l s='Your order will be sent as soon as we receive payment.' mod='bankbukopin'}</strong>
-		<br /><br />{l s='If you have questions, comments or concerns, please contact our' mod='bankbukopin'} <a href="{$link->getPageLink('contact', true)|escape:'html'}">{l s='expert customer support team' mod='bankbukopin'}</a>.
-	</p>
+    <p>
+      {l s='Your order on %s is complete.' sprintf=[$shop_name] mod='bankbukopin'}<br/>
+      {l s='Please send us payment via Bank BUKOPIN with:' mod='bankbukopin'}
+    </p>
+    {include file='module:bankbukopin/views/templates/hook/_partials/payment_infos.tpl'}
+
+    <p>
+      {l s='Please specify your order reference %s in the bankwire description.' sprintf=[$reference] mod='bankbukopin'}<br/>
+      {l s='We\'ve also sent you this information by e-mail.' mod='bankbukopin'}
+    </p>
+    <strong>{l s='Your order will be sent as soon as we receive payment.' mod='bankbukopin'}</strong>
+    <p>
+      {l s='If you have questions, comments or concerns, please contact our [1]expert customer support team[/1].' mod='bankbukopin' tags=["<a href='{$contact_url}'>"]}
+    </p>
 {else}
-	<p class="warning">
-		{l s='We noticed a problem with your order. If you think this is an error, feel free to contact our' mod='bankbukopin'} 
-		<a href="{$link->getPageLink('contact', true)|escape:'html'}">{l s='expert customer support team' mod='bankbukopin'}</a>.
-	</p>
+    <p class="warning">
+      {l s='We noticed a problem with your order. If you think this is an error, feel free to contact our [1]expert customer support team[/1].' mod='bankbukopin' tags=["<a href='{$contact_url}'>"]}
+    </p>
 {/if}
